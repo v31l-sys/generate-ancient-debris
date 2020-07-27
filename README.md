@@ -16,7 +16,7 @@ int32_t biomeIndex = (int32_t)BiomeFeatureIndexOffset::nether_wastes;
 ```
 Expected output:
 
-LARGE ANCIENT DEBRIS LOCATION: { X: 599, Y: 18, Z: -1554 } POSSIBLE GEN: 0
+LARGE ANCIENT DEBRIS LOCATION: { X: 599, Y: 18, Z: -1554 } POSSIBLE GEN: 0  
 SMALL ANCIENT DEBRIS LOCATION: { X: 599, Y: 92, Z: -1567 } POSSIBLE GEN: 2
 
 Tells you the locations of large and small ancient debris, and how many potentially generated.
