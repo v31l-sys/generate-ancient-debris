@@ -5,23 +5,6 @@ class JavaRandom {
 #define get_random(seed) ((uint64_t)((seed ^ 0x5DEECE66DULL) & ((1ULL << 48) - 1)))
 
 public:
-    //ChunkRandom::setPopulationSeed()
-    int64_t set_population_seed(int64_t worldSeed, int32_t blockX, int32_t blockZ) {
-        seedState = get_random(worldSeed);
-        int64_t s1 = next_long() | 0x1ULL;
-        int64_t s2 = next_long() | 0x1ULL;
-        int64_t calc = blockX * s1 + blockZ * s2 ^ worldSeed;
-        seedState = get_random(calc);
-        return calc;
-    }
-
-    //ChunkRandom::setDecoratorSeed()
-    int64_t set_decorator_seed(int64_t populationSeed, int16_t index, int16_t step) {
-        int64_t calc = populationSeed + index + 10000 * step;
-        seedState = get_random(calc);
-        return calc;
-    }
-
     //Random::nextLong()
     int64_t next_long() {
         return (static_cast<long long>(random_next(32)) << 32) + random_next(32);
@@ -41,8 +24,29 @@ public:
         return (int32_t)(seedState >> (48 - bits));
     }
 
-private:
+protected:
     int64_t seedState;
+};
+
+//some functions from Minecraft ChunkRandom
+class ChunkRandom : public JavaRandom {
+public:
+    //ChunkRandom::setPopulationSeed()
+    int64_t set_population_seed(int64_t worldSeed, int32_t blockX, int32_t blockZ) {
+        seedState = get_random(worldSeed);
+        int64_t s1 = next_long() | 0x1ULL;
+        int64_t s2 = next_long() | 0x1ULL;
+        int64_t calc = blockX * s1 + blockZ * s2 ^ worldSeed;
+        seedState = get_random(calc);
+        return calc;
+    }
+
+    //ChunkRandom::setDecoratorSeed()
+    int64_t set_decorator_seed(int64_t populationSeed, int16_t index, int16_t step) {
+        int64_t calc = populationSeed + index + 10000 * step;
+        seedState = get_random(calc);
+        return calc;
+    }
 };
 
 struct BlockPos {
@@ -102,13 +106,13 @@ int main()
     const BlockPos blockToUse = { NULL, NULL, NULL };
     //WHAT BIOME IS YOUR BLOCK IN? THIS EFFECTS GENERATION
     //OPTIONS: nether_wastes, soul_sand_valley, basalt_delta, warped_forest, crimson_forest
-    int16_t biomeIndex = (int16_t)BiomeFeatureIndexOffset::soul_sand_valley;
+    int16_t biomeIndex = (int16_t)BiomeFeatureIndexOffset::nether_wastes;
     ///////////////////////////////////////////////////////////////////////////////////////
 
     //CALCULATES AND SETS CHUNK COORDS:
     const BlockPos chunkCoords = AncientDebrisUtils::get_chunk_coord_from_blockpos(blockToUse);
     //JAVA RANDOM INSTANCE
-    JavaRandom* rand = new JavaRandom;
+    ChunkRandom* rand = new ChunkRandom;
     //CALCULATE POPULATION SEED USING WORLDSEED, CHUNKX AND CHUNKZ
     int64_t populationSeed = rand->set_population_seed(worldSeed, chunkCoords.x, chunkCoords.z);
 
