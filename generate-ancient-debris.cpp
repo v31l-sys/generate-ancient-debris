@@ -97,12 +97,12 @@ int main()
 {
     //SET THESE VALUES//////////////////////////////////////////////////////SET THESE VALUES
     //YOUR WORLD SEED GOES HERE: (notation: 238218947LL) add LL to the end of the number.
-    const int64_t worldSeed = 412343458;
+    const int64_t worldSeed = NULL;
     //WHAT IS THE POSITION OF THE BLOCK YOU'RE LOOKING AT? X,Y,Z
-    const BlockPos blockToUse = { 598, 37, -1567 };
+    const BlockPos blockToUse = { NULL, NULL, NULL };
     //WHAT BIOME IS YOUR BLOCK IN? THIS EFFECTS GENERATION
     //OPTIONS: nether_wastes, soul_sand_valley, basalt_delta, warped_forest, crimson_forest
-    int32_t biomeIndex = (int32_t)BiomeFeatureIndexOffset::soul_sand_valley;
+    int16_t biomeIndex = (int16_t)BiomeFeatureIndexOffset::soul_sand_valley;
     ///////////////////////////////////////////////////////////////////////////////////////
 
     //CALCULATES AND SETS CHUNK COORDS:
