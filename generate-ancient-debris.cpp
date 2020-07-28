@@ -19,7 +19,7 @@ int main()
     //NOTE: Y VALUE DOES NOT MATTER SINCE THIS IS CALCULATING A CHUNK SECTION COORDINATE AND NOT A CHUNK COORDINATE
     BlockPos blockToUse = { NULL, NULL, NULL };
     //WHAT BIOME IS YOUR BLOCK IN? THIS EFFECTS GENERATION
-    //OPTIONS: nether_wastes, soul_sand_valley, basalt_delta, warped_forest, crimson_forest
+    //OPTIONS: nether_wastes, soul_sand_valley, basalt_deltas, warped_forest, crimson_forest
     //EX: int16_t biomeIndex = (int16_t)AncientDebrisUtils::BiomeFeatureIndexOffset::nether_wastes;
     int16_t biomeIndex = NULL;
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +80,7 @@ int main()
                         biomeIndex = (int16_t)AncientDebrisUtils::BiomeFeatureIndexOffset::nether_wastes;
                         break;
                     case 4:
-                        biomeIndex = (int16_t)AncientDebrisUtils::BiomeFeatureIndexOffset::basalt_delta;
+                        biomeIndex = (int16_t)AncientDebrisUtils::BiomeFeatureIndexOffset::basalt_deltas;
                         break;
                 }
 

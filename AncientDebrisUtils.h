@@ -13,7 +13,7 @@ namespace AncientDebrisUtils {
         crimson_forest = 12,
         warped_forest = 13,
         nether_wastes = 15,
-        basalt_delta = 15
+        basalt_deltas = 15
     };
 
     enum class DebrisSpawnType : int8_t {
