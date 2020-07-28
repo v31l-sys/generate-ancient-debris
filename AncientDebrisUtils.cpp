@@ -53,7 +53,6 @@ namespace AncientDebrisUtils {
 
     //Get next Debris location, promotes code reuse
     vector<BlockPos> AncientDebris::generate_next_debris_locations(ChunkRandom* random, const int64_t populationSeed, const BlockPos chunkCoords, const int16_t biomeIndex, const DebrisSpawnType type) {
-        //GET SMALL DEBRIS LOCATION
         vector<BlockPos> positions = vector<BlockPos>();
         random->set_decorator_seed(populationSeed, biomeIndex, 7);
         BlockPos location = BlockPos{ chunkCoords.x, 0, chunkCoords.z };
