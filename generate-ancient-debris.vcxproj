@@ -147,7 +147,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AncientDebrisUtils.cpp" />
+    <ClCompile Include="BlockPos.cpp" />
+    <ClCompile Include="ChunkRandom.cpp" />
     <ClCompile Include="generate-ancient-debris.cpp" />
+    <ClCompile Include="JavaRandom.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AncientDebrisUtils.h" />
+    <ClInclude Include="BlockPos.h" />
+    <ClInclude Include="ChunkRandom.h" />
+    <ClInclude Include="JavaRandom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
