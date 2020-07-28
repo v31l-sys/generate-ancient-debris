@@ -57,7 +57,7 @@ int main()
                         << "1: crimson_forest\n"
                         << "2: warped_forest\n"
                         << "3: nether_wastes\n"
-                        << "4: basalt_deltas\n\n"
+                        << "4: basalt_delta\n\n"
                         << "CHOOSE AN OPTION: ";
                     cin >> biomeIndex;
                     if (cin.fail())
